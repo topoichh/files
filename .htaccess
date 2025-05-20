@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Sign In, or i'll get your soul and make it disappear"
+AuthUserFile .htpasswd
+require valid-user
