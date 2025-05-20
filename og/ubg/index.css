@@ -1,0 +1,60 @@
+/* Resetting margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #2196F3; /* Blue background */
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Increased gap between icons for better spacing */
+}
+
+.icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.icon img {
+  width: 100px; /* Icon size */
+  height: 100px; /* Icon size */
+  border-radius: 10px;
+}
+
+.icon::after {
+  content: attr(data-text); /* Use the text from the data-text attribute */
+  position: absolute;
+  bottom: -20px; /* Position the text below the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white; /* Text color */
+  font-size: 1rem; /* Text size */
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Optional: adds shadow to make text more visible */
+  opacity: 0; /* Initially hide the text */
+  transition: opacity 0.3s ease-in-out; /* Smooth transition for the text appearance */
+}
+
+.icon:hover::after {
+  opacity: 1; /* Show the text when the icon is hovered */
+}
