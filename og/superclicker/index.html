@@ -1,0 +1,179 @@
+ <html><head><base href="." /><title>Cookie Clicker Style Game</title>
+<style>
+  body {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+  
+  body {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #fff;
+  }
+
+  #cookie {
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    filter: drop-shadow(0 0 10px #ffd700);
+  }
+
+  #cookie:active {
+    transform: scale(0.95);
+  }
+
+  #counter {
+    font-size: 2em;
+    margin: 20px;
+    text-shadow: 0 0 10px #ffd700;
+  }
+
+  .upgrade {
+    background: linear-gradient(45deg, #2a2a4a, #16213e);
+    border: 2px solid #ffd700;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .upgrade:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+  }
+
+  #cookie-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+</style>
+</head><body>
+
+<div id="counter">Cookies: 0</div>
+
+<svg id="cookie" viewBox="0 0 100 100" onclick="clickCookie()">
+  <circle cx="50" cy="50" r="45" fill="#c4845d"/>
+  <circle cx="30" cy="40" r="8" fill="#8b4513"/>
+  <circle cx="60" cy="35" r="8" fill="#8b4513"/>
+  <circle cx="45" cy="60" r="8" fill="#8b4513"/>
+  <circle cx="70" cy="55" r="8" fill="#8b4513"/>
+</svg>
+
+<div id="upgrades">
+  <button class="upgrade" onclick="buyAutoClicker()">Buy Auto Clicker (Cost: 10 cookies)</button>
+  <button class="upgrade" onclick="buyMultiplier()">Buy Multiplier (Cost: 50 cookies)</button>
+</div>
+
+<canvas id="cookie-rain"></canvas>
+
+<script>
+let cookies = 0;
+let autoClickers = 0;
+let multiplier = 1;
+let autoClickerCost = 10;
+let multiplierCost = 50;
+
+function updateCounter() {
+    document.getElementById('counter').textContent = `Cookies: ${Math.floor(cookies)}`;
+}
+
+function clickCookie() {
+    cookies += 1 * multiplier;
+    updateCounter();
+    createCookieParticle();
+}
+
+function buyAutoClicker() {
+    if (cookies >= autoClickerCost) {
+        cookies -= autoClickerCost;
+        autoClickers++;
+        autoClickerCost *= 1.5;
+        document.querySelector('button').textContent = `Buy Auto Clicker (Cost: ${Math.floor(autoClickerCost)} cookies)`;
+        updateCounter();
+    }
+}
+
+function buyMultiplier() {
+    if (cookies >= multiplierCost) {
+        cookies -= multiplierCost;
+        multiplier *= 1.2;
+        multiplierCost *= 2;
+        document.querySelectorAll('button')[1].textContent = `Buy Multiplier (Cost: ${Math.floor(multiplierCost)} cookies)`;
+        updateCounter();
+    }
+}
+
+// Auto clicker logic
+setInterval(() => {
+    cookies += autoClickers * multiplier;
+    updateCounter();
+}, 1000);
+
+// Cookie rain animation
+const canvas = document.getElementById('cookie-rain');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+const cookieParticles = [];
+
+function createCookieParticle() {
+    cookieParticles.push({
+        x: Math.random() * canvas.width,
+        y: -20,
+        speed: 2 + Math.random() * 4,
+        size: 10 + Math.random() * 20,
+        rotation: Math.random() * 360
+    });
+}
+
+function animateCookies() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    for (let i = cookieParticles.length - 1; i >= 0; i--) {
+        const particle = cookieParticles[i];
+        particle.y += particle.speed;
+        particle.rotation += 1;
+        
+        ctx.save();
+        ctx.translate(particle.x, particle.y);
+        ctx.rotate(particle.rotation * Math.PI / 180);
+        
+        ctx.beginPath();
+        ctx.arc(0, 0, particle.size / 2, 0, Math.PI * 2);
+        ctx.fillStyle = '#c4845d';
+        ctx.fill();
+        
+        ctx.restore();
+        
+        if (particle.y > canvas.height + particle.size) {
+            cookieParticles.splice(i, 1);
+        }
+    }
+    
+    requestAnimationFrame(animateCookies);
+}
+
+animateCookies();
+</script>
+</body></html>
