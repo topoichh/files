@@ -128,6 +128,54 @@
       ],
       "uploadDate": "unknown",
       "fileSize": "10.24 GB"
+        },
+        {
+      "title": "R.E.P.O 0.1.2 (Build 17560228) [ENG]",
+      "uris": [
+        "magnet:?xt=urn:btih:E36XNV2CQ64VAJNZGYT2DXYQNRHQUBUN&dn=R.E.P.O.%20by%20Igruha&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
+      ],
+      "uploadDate": "unknown",
+      "fileSize": "314 MB"
+        },
+        {
+      "title": "Cyberpunk 2077 2.21 (79356) [RUS, ENG]",
+      "uris": [
+        "magnet:?xt=urn:btih:2AIMFOT75J2D4C4QNTZL2BID5OYUQTCH&dn=Cyberpunk%202077%20by%20Igruha&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
+      ],
+      "uploadDate": "unknown",
+      "fileSize": "76.33 GB"
+        },
+        {
+      "title": "PUSS! 2.1.2 [RUS, ENG]",
+      "uris": [
+        "magnet:?xt=urn:btih:HOXSBCCVLX23QJEANQ3FTP4ZIS2SEQFX&dn=PUSS%20v2.1.2.rar&xl=430161304&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
+      ],
+      "uploadDate": "unknown",
+      "fileSize": "410 MB"
+        },
+        {
+      "title": "Schoolboy Runaway 0.500 (Build 17563154) [RUS, ENG]",
+      "uris": [
+        "magnet:?xt=urn:btih:M5PSTGZYF2DVRES5M2YYTNHDLOZNFQDS&dn=SchoolBoy%20Runaway%20by%20Igruha&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
+      ],
+      "uploadDate": "unknown",
+      "fileSize": "224 MB"
+        },
+        {
+      "title": "Left 4 Dead 2 2.2.4.3 [Online-Fix, All DLC, RUS, ENG]",
+      "uris": [
+        "magnet:?xt=urn:btih:G3ZFWHYRLUF2GJASJTVX72N4JPQTYS5N&dn=Left%204%20Dead%202%20by%20Igruha&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
+      ],
+      "uploadDate": "unknown",
+      "fileSize": "8.13 GB"
+        },
+        {
+      "title": "Wallpaper Engine 2.4.82 [210 Wallpapers, RUS, ENG]",
+      "uris": [
+        "magnet:?xt=urn:btih:2XZVAUBYDTDKYRAQ46PQX346WPUGTV7P&dn=Wallpaper%20Engine%20by%20Igruha&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
+      ],
+      "uploadDate": "unknown"  
+      "fileSize": "9.23 GB"
         }
       ]
 }
